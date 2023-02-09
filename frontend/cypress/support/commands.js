@@ -10,18 +10,28 @@
 //
 //
 // -- This is a parent command --
-Cypress.Commands.add("signup", (email, password) => {
-  cy.visit("/signup");
-  cy.get("#email").type(email);
-  cy.get("#password").type(password);
-  cy.get("#submit").click();
+Cypress.Commands.add('signup', (email, password, name) => {
+  cy.visit('/signup');
+  cy.get('#email').type(email);
+  cy.get('#password').type(password);
+  if (name) {
+    cy.get('#display_name').type(name);
+  }
+
+  cy.get('#submit').click();
 });
 
-Cypress.Commands.add("login", (email, password) => {
-  cy.visit("/login");
-  cy.get("#email").type(email);
-  cy.get("#password").type(password);
-  cy.get("#submit").click();
+Cypress.Commands.add('login', (email, password) => {
+  cy.visit('/login');
+  cy.get('#email').type(email);
+  cy.get('#password').type(password);
+  cy.get('#submit').click();
+});
+
+Cypress.Commands.add('makePost', (message) => {
+  cy.visit('/posts');
+  cy.get('#post-input').type(message);
+  cy.get('#submit').click();
 });
 //
 //
