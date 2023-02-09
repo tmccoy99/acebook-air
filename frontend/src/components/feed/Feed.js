@@ -40,12 +40,15 @@ const Feed = ({ navigate, path }) => {
       <>
         <h2>Posts</h2>
         <button onClick={logout}>Logout</button>
-        <CreatePostForm
-          navigate={navigate}
-          token={token}
-          id={id}
-          setReload={setReload}
-        />
+        {/* hides post form on profile page */}
+        {!path && (
+          <CreatePostForm
+            navigate={navigate}
+            token={token}
+            id={id}
+            setReload={setReload}
+          />
+        )}
         <div id="feed" role="feed">
           {posts ? (
             posts
