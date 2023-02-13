@@ -2,14 +2,10 @@ import React, { useState } from 'react';
 
 const Form = ({ form_type, token }) => {
   const [inputValue, setInputValue] = useState('');
+  const [image, setImage] = useState(null);
 
-  let stringMessage;
-
+  let stringMessage = '';
   const handleSubmit = async (e) => {
-    const inputElement = document.querySelector('input[type="file"]');
-    const formData = new FormData();
-    formData.append('image', inputElement.files[0]);
-    e.preventDefault();
     form_type === 'display'
       ? (stringMessage = JSON.stringify({ newDisplayName: inputValue }))
       : form_type === 'email'
@@ -18,46 +14,52 @@ const Form = ({ form_type, token }) => {
       ? (stringMessage = JSON.stringify({ newBio: inputValue }))
       : form_type === 'password'
       ? (stringMessage = JSON.stringify({ newPassword: inputValue }))
-      : (stringMessage = null);
-    !form_type === 'image'
-      ? fetch('/account', {
-          method: 'put',
-          headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
-          body: stringMessage,
-        }).then((response) => {
-          if (response.status === 204) {
-            console.log('inputvalue: ', inputValue);
-            console.log(`${form_type} changed`);
-          } else {
-            console.log(`Error changing ${form_type}`);
-            console.log('inputvalue: ', inputValue);
-          }
-        })
-      : fetch('/account', {
-          method: 'put',
-          headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
-          body: formData,
-        }).then((response) => {
-          if (response.status === 204) {
-            console.log('inputvalue: ', inputValue);
-            console.log(`${form_type} changed`);
-          } else {
-            console.log(formData);
-            console.log(`Error changing ${form_type}`);
-            console.log('inputvalue: ', inputValue);
-          }
-        });
+      : (stringMessage = 'image');
+
+    if (form_type === 'image') {
+      const formData = new FormData();
+      formData.append('image', image, image.name);
+      e.preventDefault();
+      let response = await fetch('/account', {
+        method: 'put',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: formData,
+      });
+
+      if (response.status != 204) {
+        console.log(response.status);
+      } else {
+        console.log('done');
+      }
+    } else {
+      e.preventDefault();
+      let response = await fetch('/account', {
+        method: 'put',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: stringMessage,
+      });
+
+      if (response.status != 204) {
+        console.log(response.status);
+      } else {
+        console.log('done');
+      }
+    }
   };
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
+
+  const handleImageChange = (e) => {
+    setImage(e.target.files[0]);
+  };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -82,11 +84,12 @@ const Form = ({ form_type, token }) => {
               ? 'New password'
               : null
           }
-          value={!form_type === 'image' ? inputValue : null}
-          onChange={handleInputChange}
+          // value={form_type === 'image' ? '' : inputValue}
+          onChange={
+            form_type === 'image' ? handleImageChange : handleInputChange
+          }
         ></input>
-        <button type='submit'>Confirm</button>
-        {formData ? formData : null} 
+        <button type="submit">Confirm</button>
       </form>
     </div>
   );
