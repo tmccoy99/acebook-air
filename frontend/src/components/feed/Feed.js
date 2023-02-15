@@ -10,7 +10,7 @@ const Feed = ({ navigate, path, setReload, reload }) => {
 
   useEffect(() => {
     if (token) {
-      fetch(path || '/posts', {
+      fetch(path || 'http://34.224.16.218/posts', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -36,11 +36,11 @@ const Feed = ({ navigate, path, setReload, reload }) => {
   if (token) {
     return (
       <>
-        <button id='logout-button' onClick={logout}>
+        <button id="logout-button" onClick={logout}>
           Logout
         </button>
 
-        <div id='feed' role='feed'>
+        <div id="feed" role="feed">
           {posts ? (
             posts
               .slice(0)

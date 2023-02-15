@@ -6,7 +6,7 @@ const CreatePostForm = ({ navigate, token, id, setReload }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    let response = await fetch('/posts', {
+    let response = await fetch('http://34.224.16.218/posts', {
       method: 'post',
       headers: {
         Authorization: `Bearer ${token}`,
@@ -25,17 +25,17 @@ const CreatePostForm = ({ navigate, token, id, setReload }) => {
   };
   return (
     <>
-      <form className='create-post-form' onSubmit={handleSubmit}>
+      <form className="create-post-form" onSubmit={handleSubmit}>
         <input
-          id='post-input'
-          placeholder='Whats on your mind?'
+          id="post-input"
+          placeholder="Whats on your mind?"
           value={message}
           onChange={(e) => {
             setMessage(e.target.value);
           }}
           required
         ></input>
-        <button id='submit' type='submit'>
+        <button id="submit" type="submit">
           Submit post
         </button>
       </form>

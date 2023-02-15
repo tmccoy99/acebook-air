@@ -1,8 +1,9 @@
 {
   "name": "frontend",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://34.224.16.218",
+  "proxy": "http://34.224.16.218/",
   "dependencies": {
     "clean": "^4.0.2",
     "eslint": "^8.23.0",
@@ -17,7 +18,7 @@
     "cypress-file-upload": "^5.0.8"
   },
   "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
+    "start": "react-scripts start --openssl-legacy-provider",
     "build": "react-scripts build",
     "test": "npm run test:unit && npm run test:feature",
     "test:unit": "cypress run --component",

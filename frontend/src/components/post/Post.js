@@ -18,7 +18,9 @@ const Post = ({ post, setReload }) => {
     toggleIsLiked((likeState) => !likeState);
     console.log(post);
     if (user_id) {
-      let url = isLiked ? '/posts/unlike' : '/posts/like';
+      let url = isLiked
+        ? 'http://34.224.16.218/posts/unlike'
+        : 'http://34.224.16.218/posts/like';
       let response = await fetch(url, {
         method: 'PATCH',
         headers: {
@@ -41,7 +43,7 @@ const Post = ({ post, setReload }) => {
       <div className={styles.container}>
         <div className={styles.postHeader}>
           <div className={styles.avatar}>
-            <img alt='avatar' src={post.user_id && post.user_id.image} />
+            <img alt="avatar" src={post.user_id && post.user_id.image} />
           </div>
           <div>
             <h1> {post.user_id && post.user_id.display_name}</h1>
@@ -49,32 +51,32 @@ const Post = ({ post, setReload }) => {
               Posted{' '}
               <ReactTimeAgo
                 date={post.createdAt}
-                locale='en-US'
-                timeStyle='twitter'
+                locale="en-US"
+                timeStyle="twitter"
               />{' '}
               ago
             </p>
           </div>
         </div>
-        <article className={styles.content} data-cy='post' key={post._id}>
+        <article className={styles.content} data-cy="post" key={post._id}>
           {post.message}
         </article>
         <div>
           <div className={styles.postFooter}>
             <div
               className={styles.like}
-              data-cy='like-button'
+              data-cy="like-button"
               onClick={handleLikeToggle}
             >
               {isLiked ? (
-                <img src='/images/thumbFilled.png' alt='like' />
+                <img src="/images/thumbFilled.png" alt="like" />
               ) : (
-                <img src='/images/thumbOutline.png' alt='like' />
+                <img src="/images/thumbOutline.png" alt="like" />
               )}
             </div>
             <div className={styles.likesNumber}>
               <div>
-                <img src='/images/likes.jpg' alt='Number of likes' />
+                <img src="/images/likes.jpg" alt="Number of likes" />
               </div>
               <p>{post.likes.length}</p>
             </div>

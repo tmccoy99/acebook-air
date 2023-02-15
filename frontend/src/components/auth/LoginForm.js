@@ -7,7 +7,7 @@ const LogInForm = ({ navigate }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    let response = await fetch('/tokens', {
+    let response = await fetch('http://34.224.16.218/tokens', {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
@@ -36,20 +36,20 @@ const LogInForm = ({ navigate }) => {
   return (
     <form onSubmit={handleSubmit}>
       <input
-        placeholder='Email'
-        id='email'
-        type='text'
+        placeholder="Email"
+        id="email"
+        type="text"
         value={email}
         onChange={handleEmailChange}
       />
       <input
-        placeholder='Password'
-        id='password'
-        type='password'
+        placeholder="Password"
+        id="password"
+        type="password"
         value={password}
         onChange={handlePasswordChange}
       />
-      <input role='submit-button' id='submit' type='submit' value='Submit' />
+      <input role="submit-button" id="submit" type="submit" value="Submit" />
     </form>
   );
 };
