@@ -10,7 +10,7 @@ const Feed = ({ navigate, path, setReload, reload }) => {
 
   useEffect(() => {
     if (token) {
-      fetch(path || 'http://34.224.16.218/posts', {
+      fetch(path || 'https://34.224.16.218/posts', {
         headers: {
           Authorization: `Bearer ${token}`,
         },

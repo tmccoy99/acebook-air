@@ -7,7 +7,7 @@ const SignUpForm = ({ navigate }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    fetch('http://34.224.16.218/users', {
+    fetch('https://34.224.16.218/users', {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',

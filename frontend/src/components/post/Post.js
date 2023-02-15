@@ -19,8 +19,8 @@ const Post = ({ post, setReload }) => {
     console.log(post);
     if (user_id) {
       let url = isLiked
-        ? 'http://34.224.16.218/posts/unlike'
-        : 'http://34.224.16.218/posts/like';
+        ? 'https://34.224.16.218/posts/unlike'
+        : 'https://34.224.16.218/posts/like';
       let response = await fetch(url, {
         method: 'PATCH',
         headers: {
