@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 const JWT = require('jsonwebtoken');
+const cors = require('cors');
 
 const postsRouter = require('./routes/posts');
 const tokensRouter = require('./routes/tokens');
@@ -11,6 +12,11 @@ const accountRouter = require('./routes/account');
 
 const app = express();
 
+app.use(
+  cors({
+    origin: '*',
+  })
+);
 app.use(express.json());
 
 app.use(logger('dev'));
