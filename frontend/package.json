@@ -3,7 +3,6 @@
   "homepage": ".",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://34.224.16.218/",
   "dependencies": {
     "clean": "^4.0.2",
     "eslint": "^8.23.0",
