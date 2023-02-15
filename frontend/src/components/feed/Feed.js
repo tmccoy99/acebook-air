@@ -10,7 +10,7 @@ const Feed = ({ navigate, path, setReload, reload }) => {
 
   useEffect(() => {
     if (token) {
-      fetch(path || 'https://34.224.16.218/posts', {
+      fetch(path || 'https://acebook-air.onrender.com/posts', {
         headers: {
           Authorization: `Bearer ${token}`,
         },

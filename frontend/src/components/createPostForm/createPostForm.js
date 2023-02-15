@@ -6,7 +6,7 @@ const CreatePostForm = ({ navigate, token, id, setReload }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    let response = await fetch('https://34.224.16.218/posts', {
+    let response = await fetch('https://acebook-air.onrender.com/posts', {
       method: 'post',
       headers: {
         Authorization: `Bearer ${token}`,

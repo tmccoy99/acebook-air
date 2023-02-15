@@ -24,7 +24,7 @@ const Form = ({ form_type, token, setShowForm }) => {
       formData.append('image', file);
     }
 
-    fetch('https://34.224.16.218/account', {
+    fetch('https://acebook-air.onrender.com/account', {
       method: 'put',
       headers: {
         Authorization: `Bearer ${token}`,
