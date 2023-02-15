@@ -9,8 +9,7 @@
 /coverage
 /cypress/videos
 
-# production
-/build
+
 
 # misc
 .DS_Store
