@@ -5,7 +5,4 @@ module.exports = {
       path: './.env',
     }),
   ],
-  node: {
-    fs: 'empty',
-  },
 };

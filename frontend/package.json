@@ -5,10 +5,9 @@
   "dependencies": {
     "clean": "^4.0.2",
     "cypress-file-upload": "^5.0.8",
-    "dotenv": "^16.0.3",
+    "dotenv-safe": "^8.2.0",
     "dotenv-webpack": "^8.0.1",
     "eslint": "^8.23.0",
-    "fs": "^0.0.1-security",
     "javascript-time-ago": "^2.5.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
