@@ -11,7 +11,7 @@ const Posts = ({ navigate }) => {
   return (
     <>
     <div className={styles.homeContainer}>
-      <h2>Posts</h2>
+      <h2>Everyone's Posts</h2>
       <CreatePostForm
         navigate={navigate}
         token={token}
