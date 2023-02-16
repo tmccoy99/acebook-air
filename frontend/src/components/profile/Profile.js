@@ -11,7 +11,7 @@ function Profile({ navigate }) {
       <h2>Welcome to your Profile page</h2>
       <Feed
         navigate={navigate}
-        path={'/account'}
+        path={'account'}
         reload={reload}
         setReload={setReload}
       ></Feed>
