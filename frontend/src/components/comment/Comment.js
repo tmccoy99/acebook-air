@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-const apiUrl = require('../../apiUrl');
+require('dotenv').config();
 const Comment = ({ comment, setReload }) => {
   const user_id = window.localStorage.getItem('user_id');
   const token = window.localStorage.getItem('token');

@@ -4,7 +4,7 @@ import ReactTimeAgo from 'react-time-ago';
 import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en';
 import Comment from '../comment/Comment';
-const apiUrl = require('../../apiUrl');
+require('dotenv').config();
 TimeAgo.addLocale(en);
 
 const Post = ({ post, setReload }) => {

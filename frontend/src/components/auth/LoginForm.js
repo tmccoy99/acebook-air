@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-const apiUrl = require('../../apiUrl');
+require('dotenv').config();
 const LogInForm = ({ navigate, token }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
