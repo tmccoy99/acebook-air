@@ -1,12 +1,9 @@
-import React, { useState, useEffect, useNavigate } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Post.module.css';
 import ReactTimeAgo from 'react-time-ago';
 import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en';
 import Comment from '../comment/Comment';
-
-import CreateCommentForm from '../createCommentForm/CreateCommentForm';
-
 
 TimeAgo.addLocale(en);
 
