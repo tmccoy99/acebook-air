@@ -13,8 +13,8 @@ const Comment = ({ comment, setReload }) => {
 
     if (user_id) {
       let url = isLiked
-        ? `${apiUrl}/comments/unlike`
-        : `${apiUrl}/comments/like`;
+        ? process.env.API_URL + '/comments/unlike'
+        : process.env.API_URL + '/comments/like';
       let response = await fetch(url, {
         method: 'PATCH',
         headers: {

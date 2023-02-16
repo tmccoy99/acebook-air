@@ -20,7 +20,9 @@ const Post = ({ post, setReload }) => {
     toggleIsLiked((likeState) => !likeState);
     console.log(post);
     if (user_id) {
-      let url = isLiked ? `${apiUrl}/posts/unlike` : `${apiUrl}/posts/like`;
+      let url = isLiked
+        ? process.env.API_URL + '/posts/unlike'
+        : process.env.API_URL + '/posts/like';
       let response = await fetch(url, {
         method: 'PATCH',
         headers: {

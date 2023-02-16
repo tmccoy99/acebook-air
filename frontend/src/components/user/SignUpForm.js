@@ -7,7 +7,7 @@ const SignUpForm = ({ navigate }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    fetch(`${apiUrl}/users`, {
+    fetch(process.env.API_URL + '/users', {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
