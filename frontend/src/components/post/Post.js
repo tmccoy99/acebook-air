@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useNavigate, useState, useEffect } from 'react';
 import styles from './Post.module.css';
 import ReactTimeAgo from 'react-time-ago';
 import TimeAgo from 'javascript-time-ago';
@@ -7,7 +7,7 @@ import Comment from '../comment/Comment';
 
 TimeAgo.addLocale(en);
 
-const Post = ({ post, setReload }) => {
+const Post = ({ post, setReload, token }) => {
   const user_id = window.localStorage.getItem('user_id');
   const token = window.localStorage.getItem('token');
 
