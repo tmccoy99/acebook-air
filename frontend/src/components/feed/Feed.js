@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CreatePostForm from '../createPostForm/createPostForm';
 import Post from '../post/Post';
-require('dotenv').config();
+require('dotenv-safe').config();
 
 const Feed = ({ navigate, path, setReload, reload }) => {
   const [posts, setPosts] = useState([]);

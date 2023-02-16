@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-require('dotenv').config();
+require('dotenv-safe').config();
 //userid for post
 
 const CreatePostForm = ({ navigate, token, id, setReload }) => {

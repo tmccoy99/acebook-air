@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-require('dotenv').config();
+require('dotenv-safe').config();
 const Comment = ({ comment, setReload }) => {
   const user_id = window.localStorage.getItem('user_id');
   const token = window.localStorage.getItem('token');
