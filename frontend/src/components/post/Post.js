@@ -122,18 +122,23 @@ const Post = ({ post, setReload }) => {
         <article className={styles.content} data-cy='post' key={post._id}>
           {post.message}
           <div className='comment-section'>
+<<<<<<< HEAD
             {post.comments &&
               post.comments
                 .slice(0, 3)
                 .map((comment) => <Comment comment={comment} />)}
             {post.comments && post.comments.length > 3 && (
+=======
+            {post.comments && displayComments()}
+            {
+>>>>>>> bd77ff2 (Changed functionality of comment button so that it is now for expanding and inputting comments)
               <button
                 data-cy='expand-button'
                 onClick={handleCommentExpansionToggle}
               >
                 Expand!
               </button>
-            )}
+            }
           </div>
         </article>
 
