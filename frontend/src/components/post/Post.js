@@ -1,4 +1,9 @@
 import React, { useState, useEffect } from 'react';
+<<<<<<< HEAD
+=======
+import { useNavigate } from 'react-router-dom';
+
+>>>>>>> 96520b7 (amending usenavigate)
 import styles from './Post.module.css';
 import ReactTimeAgo from 'react-time-ago';
 import TimeAgo from 'javascript-time-ago';
