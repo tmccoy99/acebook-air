@@ -8,6 +8,7 @@
     "dotenv": "^16.0.3",
     "dotenv-webpack": "^8.0.1",
     "eslint": "^8.23.0",
+    "fs": "^0.0.1-security",
     "javascript-time-ago": "^2.5.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
