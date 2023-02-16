@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-const apiUrl = require('../../apiUrl');
 const Comment = ({ comment, setReload }) => {
   const user_id = window.localStorage.getItem('user_id');
   const token = window.localStorage.getItem('token');
@@ -12,9 +11,7 @@ const Comment = ({ comment, setReload }) => {
     toggleIsLiked((likeState) => !likeState);
 
     if (user_id) {
-      let url = isLiked
-        ? `${apiUrl}/comments/unlike`
-        : `${apiUrl}/comments/like`;
+      let url = isLiked ? `/comments/unlike` : `/comments/like`;
       let response = await fetch(url, {
         method: 'PATCH',
         headers: {
