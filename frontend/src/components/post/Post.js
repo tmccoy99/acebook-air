@@ -10,6 +10,7 @@ import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en';
 import Comment from '../comment/Comment';
 import CreateCommentForm from '../createCommentForm/CreateCommentForm';
+
 TimeAgo.addLocale(en);
 
 const Post = ({ post, setReload }) => {
@@ -19,7 +20,7 @@ const Post = ({ post, setReload }) => {
   const isPostLikedByUser = post.likes.includes(user_id);
 
   const [isLiked, toggleIsLiked] = useState(isPostLikedByUser);
-
+  const [details, setDetails] = useState(false);
   const [isEditable, setIsEditable] = useState('false');
 
   const handleDelete = async () => {
@@ -56,23 +57,17 @@ const Post = ({ post, setReload }) => {
       if (response.status !== 204) {
         console.log(response.error);
       } else {
-        setIsEditable('false');
         setReload(true);
       }
     }
   };
 
   const handleEdit = () => {
-    if (isEditable === 'false') {
-      setIsEditable('true');
-    } else {
-      setIsEditable('false');
-    }
+    setIsEditable(!isEditable);
   };
 
   const handleLikeToggle = async () => {
     toggleIsLiked((likeState) => !likeState);
-    console.log(post);
     if (user_id) {
       let url = isLiked
         ? `${process.env.REACT_APP_API_URL}/posts/unlike`
@@ -151,7 +146,7 @@ const Post = ({ post, setReload }) => {
           className={styles.content}
           data-cy="post"
           key={post._id}
-          contenteditable={isEditable}
+          contentEditable={isEditable}
         >
           <p id='text-value'>{post.message}</p>
 
