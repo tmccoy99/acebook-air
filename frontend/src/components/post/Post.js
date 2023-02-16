@@ -1,9 +1,10 @@
-import React, { useState, useNavigate } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Post.module.css';
 import ReactTimeAgo from 'react-time-ago';
 import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en';
 import Comment from '../comment/Comment';
+import CreateCommentForm from '../createCommentForm/CreateCommentForm';
 const apiUrl = require('../../apiUrl');
 TimeAgo.addLocale(en);
 
@@ -122,13 +123,6 @@ const Post = ({ post, setReload }) => {
         <article className={styles.content} data-cy='post' key={post._id}>
           {post.message}
           <div className='comment-section'>
-<<<<<<< HEAD
-            {post.comments &&
-              post.comments
-                .slice(0, 3)
-                .map((comment) => <Comment comment={comment} />)}
-            {post.comments && post.comments.length > 3 && (
-=======
             {post.comments && displayComments()}
             {
 >>>>>>> bd77ff2 (Changed functionality of comment button so that it is now for expanding and inputting comments)
