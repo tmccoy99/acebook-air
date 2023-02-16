@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-<<<<<<< HEAD
-=======
 import { useNavigate } from 'react-router-dom';
 
 >>>>>>> 96520b7 (amending usenavigate)
@@ -22,14 +20,6 @@ const Post = ({ post, setReload }) => {
   const [isLiked, toggleIsLiked] = useState(isPostLikedByUser);
   const [details, setDetails] = useState(false);
   const [isEditable, setIsEditable] = useState(false);
-
-  useEffect(() => {
-    if (user_id && post.user_id && user_id === post.user_id._id) {
-      setIsEditable(true);
-    } else {
-      setIsEditable(false);
-    }
-  }, [user_id, post]);
 
   const handleDelete = async () => {
     if (user_id) {
@@ -73,6 +63,11 @@ const Post = ({ post, setReload }) => {
 
   const handleEdit = () => {
     setIsEditable(!isEditable);
+    if (!isEditable) {
+      setTimeout(() => {
+        messageRef.current.focus();
+      }, 0);
+    }
   };
 
   const handleLikeToggle = async () => {
@@ -151,13 +146,10 @@ const Post = ({ post, setReload }) => {
             </p>
           </div>
         </div>
-        <article
-          className={styles.content}
-          data-cy='post'
-          key={post._id}
-          contentEditable={isEditable}
-        >
-          <p id='text-value'>{messageExpander(post.message)}</p>
+        <article className={styles.content} data-cy='post' key={post._id}>
+          <p id='text-value' contentEditable={isEditable}>
+            {messageExpander(post.message)}
+          </p>
 
           <div className='comment-section'>
             {post.comments && displayComments()}
