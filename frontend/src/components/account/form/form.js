@@ -23,7 +23,7 @@ const Form = ({ form_type, token, setShowForm }) => {
       formData.append('image', file);
     }
 
-    fetch(process.env.API_URL + '/account', {
+    fetch(process.env.REACT_APP_API_URL + '/account', {
       method: 'put',
       headers: {
         Authorization: `Bearer ${token}`,

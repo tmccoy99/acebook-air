@@ -6,7 +6,7 @@ const CreatePostForm = ({ navigate, token, id, setReload }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    let response = await fetch(process.env.API_URL + '/posts', {
+    let response = await fetch(process.env.REACT_APP_API_URL + '/posts', {
       method: 'post',
       headers: {
         Authorization: `Bearer ${token}`,

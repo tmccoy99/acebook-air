@@ -10,7 +10,9 @@ const Feed = ({ navigate, path, setReload, reload }) => {
   useEffect(() => {
     if (token) {
       fetch(
-        path ? process.env.API_URL + path : process.env.API_URL + '/posts',
+        path
+          ? process.env.REACT_APP_API_URL + path
+          : process.env.REACT_APP_API_URL + '/posts',
         {
           headers: {
             Authorization: `Bearer ${token}`,

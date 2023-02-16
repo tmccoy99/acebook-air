@@ -14,14 +14,13 @@ const Post = ({ post, setReload }) => {
 
   const [isLiked, toggleIsLiked] = useState(isPostLikedByUser);
   const [isExpanded, toggleExpansion] = useState(false);
-
   const handleLikeToggle = async () => {
     toggleIsLiked((likeState) => !likeState);
     console.log(post);
     if (user_id) {
       let url = isLiked
-        ? process.env.API_URL + '/posts/unlike'
-        : process.env.API_URL + '/posts/like';
+        ? process.env.REACT_APP_API_URL + '/posts/unlike'
+        : process.env.REACT_APP_API_URL + '/posts/like';
       let response = await fetch(url, {
         method: 'PATCH',
         headers: {
