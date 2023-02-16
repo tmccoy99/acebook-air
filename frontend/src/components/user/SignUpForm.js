@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-require('dotenv-safe').config();
 const SignUpForm = ({ navigate }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
