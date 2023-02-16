@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-require('dotenv').config();
+require('dotenv-safe').config();
 const Form = ({ form_type, token, setShowForm }) => {
   const [inputValue, setInputValue] = useState('');
   const [file, setFile] = useState(null);
