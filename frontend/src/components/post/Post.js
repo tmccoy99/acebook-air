@@ -186,16 +186,6 @@ const Post = ({ post, setReload }) => {
           ) : null}
         </div>
 
-        {isEditable ? (
-          <button
-            data-cy="edit-submit"
-            className={styles.editButton}
-            onClick={submitEdit}
-          >
-            Submit
-          </button>
-        ) : null}
-
         <div>
           <div className={styles.postFooter}>
             <div

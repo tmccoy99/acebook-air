@@ -80,3 +80,16 @@ a {
   text-decoration: underline;
   cursor: pointer;
 }
+.articleContainer {
+  display: flex;
+}
+
+.editSubmit {
+  width: 40px;
+  height: 55px;
+  margin-left: 5px;
+}
+
+.articleContainer article {
+  width: 100%;
+}
