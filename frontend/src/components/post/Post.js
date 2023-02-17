@@ -107,9 +107,7 @@ const Post = ({ post, setReload }) => {
   const messageExpander = (message) => {
     const button = (
       <>
-
-        <a data-cy='text-expand' onClick={() => setDetails(!details)}>
-
+        <a data-cy="text-expand" onClick={() => setDetails(!details)}>
           {details ? 'Show less' : 'Show more'}
         </a>
       </>
@@ -149,42 +147,43 @@ const Post = ({ post, setReload }) => {
             </p>
           </div>
         </div>
-        <article className={styles.content} data-cy="post" key={post._id}>
-          <p id="text-value" contentEditable={isEditable} ref={messageRef}>
-            {messageExpander(post.message)}
-          </p>
+        <div className={styles.articleContainer}>
+          <article className={styles.content} data-cy="post" key={post._id}>
+            <p id="text-value" contentEditable={isEditable} ref={messageRef}>
+              {messageExpander(post.message)}
+            </p>
 
-          <div className="comment-section">
-            {isExpanded && (
-              <CreateCommentForm
-                navigate={useNavigate}
-                token={token}
-                user_id={user_id}
-                post_id={post._id}
-                setReload={setReload}
-              />
-            )}
-            {post.comments && displayComments()}
-            {
-              <button
-                data-cy="expand-button"
-                onClick={handleCommentExpansionToggle}
-              >
-                Comment
-              </button>
-            }
-          </div>
-        </article>
+            <div className="comment-section">
+              {isExpanded && (
+                <CreateCommentForm
+                  navigate={useNavigate}
+                  token={token}
+                  user_id={user_id}
+                  post_id={post._id}
+                  setReload={setReload}
+                />
+              )}
+              {post.comments && displayComments()}
+              {
+                <button
+                  data-cy="expand-button"
+                  onClick={handleCommentExpansionToggle}
+                >
+                  Comment
+                </button>
+              }
+            </div>
+          </article>
 
-        {isEditable ? (
-          <button
-            data-cy="edit-submit"
-            className={styles.editButton}
-            onClick={submitEdit}
-          >
-            Submit
-          </button>
-        ) : null}
+          {isEditable ? (
+            <img
+              src="/images/buttons/comment-button.svg"
+              data-cy="edit-submit"
+              className={styles.editSubmit}
+              onClick={submitEdit}
+            />
+          ) : null}
+        </div>
 
         <div>
           <div className={styles.postFooter}>

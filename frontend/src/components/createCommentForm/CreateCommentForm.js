@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 //userid for post
+import styles from '../post/Post.module.css';
 
 const CreateCommentForm = ({
   navigate,
@@ -34,13 +35,13 @@ const CreateCommentForm = ({
   return (
     <>
       <form
-        className='create-comment-form'
+        className="create-comment-form"
         onSubmit={handleSubmit}
-        data-cy='comment-input'
+        data-cy="comment-input"
       >
         <input
           id={`comment-input-${post_id}`}
-          placeholder='What do you think of this post?'
+          placeholder="What do you think of this post?"
           value={message}
           onChange={(e) => {
             setMessage(e.target.value);
@@ -49,8 +50,8 @@ const CreateCommentForm = ({
         ></input>
         <button
           id={`submit-comment-${post_id}`}
-          type='submit'
-          data-cy='comment-submit'
+          type="submit"
+          data-cy="comment-submit"
         >
           Submit Comment
         </button>
