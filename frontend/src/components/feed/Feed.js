@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CreatePostForm from '../createPostForm/createPostForm';
 import Post from '../post/Post';
+import styles from './Feed.module.css';
 
 const Feed = ({ navigate, path, setReload, reload }) => {
   const [posts, setPosts] = useState([]);
@@ -40,11 +41,11 @@ const Feed = ({ navigate, path, setReload, reload }) => {
   if (token) {
     return (
       <>
-        <button id='logout-button' onClick={logout}>
+        <button className={styles.logoutButton} onClick={logout}>
           Logout
         </button>
 
-        <div id='feed' role='feed'>
+        <div id="feed" role="feed">
           {posts ? (
             posts
               .slice(0)
