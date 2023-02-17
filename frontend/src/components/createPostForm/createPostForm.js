@@ -25,19 +25,16 @@ const CreatePostForm = ({ navigate, token, id, setReload }) => {
   };
   return (
     <>
-      <form className='create-post-form' onSubmit={handleSubmit}>
+      <form className="create-post-form" onSubmit={handleSubmit}>
         <input
-          id='post-input'
-          placeholder='Whats on your mind?'
+          id="post-input"
+          placeholder="Whats on your mind?"
           value={message}
           onChange={(e) => {
             setMessage(e.target.value);
           }}
           required
         ></input>
-        <button id='submit' type='submit'>
-          Submit post
-        </button>
       </form>
     </>
   );
