@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CreatePostForm from '../createPostForm/createPostForm';
 import Feed from '../feed/Feed';
+import styles from "./Posts.module.css";
 
 const Posts = ({ navigate }) => {
   const [token, setToken] = useState(window.localStorage.getItem('token'));
@@ -9,7 +10,8 @@ const Posts = ({ navigate }) => {
 
   return (
     <>
-      <h2>Posts</h2>
+    <div className={styles.homeContainer}>
+      <h2>Everyone's Posts</h2>
       <CreatePostForm
         navigate={navigate}
         token={token}
@@ -23,6 +25,7 @@ const Posts = ({ navigate }) => {
         setReload={setReload}
         className='feed'
       />
+      </div>
     </>
   );
 };
