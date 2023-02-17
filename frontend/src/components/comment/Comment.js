@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './comment.css';
 const Comment = ({ comment, setReload }) => {
   const user_id = window.localStorage.getItem('user_id');
   const token = window.localStorage.getItem('token');
@@ -33,12 +34,12 @@ const Comment = ({ comment, setReload }) => {
 
   return (
     <>
-      <article data-cy='comment'>{comment.message}</article>
-      <div data-cy='like-button' onClick={handleLikeToggle}>
+      <article data-cy="comment">{comment.message}</article>
+      <div id="like-button" data-cy="like-button" onClick={handleLikeToggle}>
         {isLiked ? (
-          <img src='/images/thumbFilled.png' alt='like' />
+          <img src="/images/thumbFilled.png" alt="like" />
         ) : (
-          <img src='/images/thumbOutline.png' alt='like' />
+          <img src="/images/thumbOutline.png" alt="like" />
         )}
       </div>
     </>
