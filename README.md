@@ -140,7 +140,7 @@ Here, we've used an environment variable called `JWT_SECRET`, which you'll see u
 
 ## Card wall
 
-REPLACE THIS TEXT WITH A LINK TO YOUR CARD WALL
+[Trello Acebook - Team Air](https://trello.com/b/ugq2lcyg/acebook-team-air)
 
 ## Quickstart
 
